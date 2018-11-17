@@ -119,38 +119,6 @@
 .nav-item:nth-child(4) {
   transition-delay: 0.4s; }
 
-@media screen and (max-width: 768px) {
-  main {
-    align-items: center;
-    text-align: center; }
-    main .lg-heading {
-      line-height: 1;
-      margin-bottom: 1rem; }
-  ul.menu-nav,
-  div.menu-branding {
-    float: none;
-    width: 100%;
-    min-height: 0; }
-    ul.menu-nav.show,
-    div.menu-branding.show {
-      transform: translate3d(0, 0, 0); }
-  .menu-nav {
-    height: 65vh;
-    transform: translate3d(-100%, 0, 0);
-    font-size: 24px;
-    font-weight: bold; }
-  .menu-branding {
-    height: 35vh;
-    transform: translate3d(100%, 0, 0); }
-    .menu-branding .portrait {
-      background: url("../img/portrait_dani_small.jpg");
-      width: 150px;
-      height: 150px; } }
-
-@media screen and (max-width: 500px) {
-  main#home h1 {
-    margin-top: 10vh; } }
-
 html {
   font-size: 10px; }
 
@@ -213,7 +181,7 @@ header {
 
 main {
   padding: 4rem;
-  height: 100%; }
+  min-height: calc(100vh - 60px); }
   main .icons {
     margin-top: 1rem; }
     main .icons a {
@@ -231,3 +199,52 @@ main {
   grid-gap: 30px;
   grid-template-areas: "bioimage bio bio" "job1 job2 job3";
   grid-template-columns: repeat(3, 1fr); }
+
+.projects {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(5, 1fr); }
+  .projects img {
+    width: 100%; }
+    .projects img:hover {
+      opacity: 0.5;
+      transition: all 0.5s ease-out; }
+
+#main-footer {
+  text-align: center;
+  padding: 1rem;
+  background: #080808;
+  color: #fff;
+  height: 60px; }
+
+@media screen and (max-width: 768px) {
+  main {
+    align-items: center;
+    text-align: center; }
+    main .lg-heading {
+      line-height: 1;
+      margin-bottom: 1rem; }
+  ul.menu-nav,
+  div.menu-branding {
+    float: none;
+    width: 100%;
+    min-height: 0; }
+    ul.menu-nav.show,
+    div.menu-branding.show {
+      transform: translate3d(0, 0, 0); }
+  .menu-nav {
+    height: 65vh;
+    transform: translate3d(-100%, 0, 0);
+    font-size: 24px;
+    font-weight: bold; }
+  .menu-branding {
+    height: 35vh;
+    transform: translate3d(100%, 0, 0); }
+    .menu-branding .portrait {
+      background: url("../img/portrait_dani_small.jpg");
+      width: 150px;
+      height: 150px; } }
+
+@media screen and (max-width: 500px) {
+  main#home h1 {
+    margin-top: 10vh; } }
