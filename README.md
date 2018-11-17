@@ -1,6 +1,6 @@
 # Dantas_Daniela_Portfolio
 
-This is my portfolio project.
+This is the fisrt stages of my portfolio project.
 
 ## Getting Started
 
@@ -8,10 +8,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+You need to install or have Node.js installed in your local machine
 
 ```
-Give examples
+run npm init
 ```
 
 ### Installing
@@ -62,14 +62,12 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 - **Daniela Dantas** - _Initial work_ - [PurpleBooth](https://github.com/danifdantas)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- All my Fanshawe professors
+- stackoverflow
+- Traversy Media
