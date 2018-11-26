@@ -1,110 +1,169 @@
 @import "vars";
 @import "menu";
 html {
-  font-size: 10px;
+    font-size: 10px;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  @include background;
-  background: $primary-color;
-  color: set-text-color($primary-color);
-  height: 100%;
-  margin: 0;
-  font-family: "Montserrat", sans-serif;
-  line-height: 1.5;
+    background: $primary-color;
+    color: set-text-color($primary-color);
+    height: 100%;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.5;
+}
+
+#bg-image {
+    @include background;
 }
 
 // Headings
 h1,
 h2,
 h3 {
-  margin: 0;
-  font-weight: 400;
-  &.lg-heading {
-    font-size: 6rem;
-  }
-  &.sm-heading {
-    margin-bottom: 2rem;
-    padding: 0.2rem 1rem;
-    background: rgba(lighten($primary-color, 2), 0.5);
-  }
+    margin: 0;
+    font-weight: 700;
+    &.lg-heading {
+        font-size: 6rem;
+    }
+    &.sm-heading {
+        margin-bottom: 2rem;
+        padding: 0.2rem 1rem;
+        font-weight: 400;
+        background: rgba(lighten($primary-color, 2), 0.5);
+    }
 }
 
 a {
-  color: #fff;
-  text-decoration: none;
+    color: #fff;
+    text-decoration: none;
 }
 
 header {
-  position: fixed;
-  z-index: 2;
-  width: 100%;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
 }
 
 #logo {
-  width: 100px;
-  margin-left: 45vw;
-  margin-top: 1rem;
+    width: 80px;
+    margin-left: 45vw;
+    margin-top: 1rem;
 }
 
 .text-secondary {
-  color: $secondary-color;
+    color: $secondary-color;
 }
 
 main {
-  padding: 4rem;
-  min-height: calc(100vh - 60px);
-  .icons {
-    margin-top: 1rem;
-    a {
-      padding: 0.4rem;
-      &:hover {
-        color: $secondary-color;
-        @include easeOut();
-      }
+    padding: 4rem;
+    min-height: calc(100vh - 60px);
+    .icons {
+        margin-top: 1rem;
+        a {
+            padding: 0.4rem;
+            &:hover {
+                color: $secondary-color;
+                @include easeOut();
+            }
+        }
     }
-  }
-  &#home {
-    overflow: hidden;
-    h1 {
-      margin-top: 20vh;
+    &#home {
+        overflow: hidden;
+        h1 {
+            margin-top: 20vh;
+        }
     }
-  }
 }
 
-// About Me Page --- CHANGE
+// =======================      About Me Page --- CHANGE
+#about-me {
+    //background: $primary-color; // overflow-x: scroll; // overflow-y: hidden;
+}
+
 .about-info {
-  display: grid;
-  grid-gap: 30px;
-  grid-template-areas: "bioimage bio bio" "job1 job2 job3";
-  grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    grid-gap: 30px;
+    grid-template-areas: "bioimage bio bio" "job1 job2 job3";
+    grid-template-columns: repeat(3, 1fr);
 }
 
-// Work Page
-.projects {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(5, 1fr);
-  img {
-    width: 100%; //border: 3px $secondary-color solid;
-    &:hover {
-      opacity: 0.5; //border-color: $light-blue;
-      @include easeOut;
+// ====================         Work Page
+#work-bg-image {
+    background-image: url(../img/work_bg.svg);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#work {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    h2 {
+        grid-column: 1;
     }
-  }
+}
+
+.projects {
+    grid-column: 1;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 10px;
+    img {
+        width: 100%; //border: 3px $secondary-color solid;
+        &:hover {
+            opacity: 0.5; //border-color: $light-blue;
+            @include easeOut;
+        }
+    }
+}
+
+.des {
+    grid-column: 2;
+}
+
+.item {
+    width: 100%;
+    .project-info {
+        //position: absolute;
+        z-index: 1;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #008cba;
+        overflow: hidden;
+        width: 100%;
+        height: 0;
+        display: block; //transition: 0.6s ease;
+        -webkit-transform: scale(0, 1);
+        -ms-transform: scale(0, 1);
+        transform: scale(0, 1);
+        -webkit-transition: transform 0.4s cubic-bezier(1, 0, 0, 1);
+        transition: transform 0.4s cubic-bezier(1, 0, 0, 1);
+    }
+    &:hover .project-info {
+        height: 100%;
+        -webkit-transform-origin: right top;
+        -ms-transform-origin: right top;
+        transform-origin: right top;
+        -webkit-transform: scale(1, 1);
+        -ms-transform: scale(1, 1);
+        transform: scale(1, 1);
+    }
 }
 
 // Footer
 #main-footer {
-  text-align: center;
-  padding: 1rem;
-  background: darken($primary-color, 10);
-  color: set-text-color($primary-color);
-  height: 60px;
+    text-align: center;
+    padding: 1rem;
+    background: darken($primary-color, 10);
+    color: set-text-color($primary-color);
+    height: 60px;
 }
 
 @import "mobile";
