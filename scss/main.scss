@@ -23,6 +23,10 @@ body {
 }
 
 // Headings
+.hidden {
+    display: none;
+}
+
 h1,
 h2,
 h3 {
@@ -68,6 +72,31 @@ header {
     box-shadow: 0px 0px 35px 1px rgba(0, 0, 0, 0.66);
 }
 
+.fullscreen-vid-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -2;
+    & video {
+        min-width: 100%;
+        min-height: 100%;
+    }
+}
+
+.vid-overlay {
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background: $primary-color;
+    z-index: -1;
+    opacity: 0.75;
+}
+
 .text-secondary {
     color: $secondary-color;
 }
@@ -85,12 +114,40 @@ main {
             }
         }
     }
+    .close-vid {
+        position: absolute;
+        z-index: 3;
+        top: 20px;
+        left: 50px;
+        color: $accent-color;
+    }
     &#home {
-        overflow: hidden;
+        overflow-x: hidden;
         h1 {
             margin-top: 20vh;
         }
     }
+}
+
+// #reel {
+//     position: absolute;
+//     width: 100vw;
+//     height: 100vh;
+//     top: 2%;
+//     left: 2%;
+//     z-index: 2;
+// }
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to
+/* .fade-leave-active below version 2.1.8 */
+
+    {
+    opacity: 0;
 }
 
 // =======================      About Me Page --- CHANGE
@@ -105,68 +162,212 @@ main {
     grid-template-columns: repeat(3, 1fr);
 }
 
-// ====================         Work Page
+// ====================        WORK PAGE
 #work-bg-image {
-    background-image: url(../img/work_bg.svg);
+    background-image: url(../img/bg_pic.jpg);
     background-attachment: fixed;
     background-size: cover;
-}
-
-#work {
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: 1fr 1fr;
-    h2 {
-        grid-column: 1;
-    }
+} //background-position: center;
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($primary-color, 0.7);
+    z-index: -1;
 }
 
 .projects {
-    grid-column: 1;
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: 1fr 1fr;
-    margin-bottom: 10px;
-    img {
-        width: 100%; //border: 3px $secondary-color solid;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.thumb {
+    width: 300px;
+    height: 200px;
+    margin: 10px;
+    float: left;
+    border: 5px solid $primary-color;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+    background: #fff url(../img/bg-grad.jpg) no-repeat center center;
+    &:hover {
+        border-color: $accent-color;
+        @include easeOut;
+    }
+    & .mask,
+    & .content {
+        // width: 300px;
+        height: 200px;
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+    }
+    & .mask {
+        -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        filter: alpha(opacity=0);
+        opacity: 0;
+        background-color: rgba($light-blue, 0.7);
+        -webkit-transition: all 0.4s ease-in-out;
+        -moz-transition: all 0.4s ease-in-out;
+        -o-transition: all 0.4s ease-in-out;
+        -ms-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+    }
+    & img {
+        display: block;
+        position: relative;
+        -webkit-transition: all 0.2s linear;
+        -moz-transition: all 0.2s linear;
+        -o-transition: all 0.2s linear;
+        -ms-transition: all 0.2s linear;
+        transition: all 0.2s linear;
+    }
+    & h2 {
+        text-transform: uppercase;
+        color: #fff;
+        text-align: center;
+        position: relative;
+        font-size: 14px;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.8);
+        margin: 10px 0 0 0;
+        -webkit-transform: translateY(-100px);
+        -moz-transform: translateY(-100px);
+        -o-transform: translateY(-100px);
+        -ms-transform: translateY(-100px);
+        transform: translateY(-100px);
+        -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        filter: alpha(opacity=0);
+        opacity: 0;
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+        -ms-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+    }
+    & p {
+        font-family: Georgia, serif;
+        font-style: italic;
+        font-size: 12px;
+        position: relative;
+        color: #000;
+        padding: 5px 10px 5px;
+        text-align: center;
+        -webkit-transform: translateY(100px);
+        -moz-transform: translateY(100px);
+        -o-transform: translateY(100px);
+        -ms-transform: translateY(100px);
+        transform: translateY(100px);
+        -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        filter: alpha(opacity=0);
+        opacity: 0;
+        -webkit-transition: all 0.2s linear;
+        -moz-transition: all 0.2s linear;
+        -o-transition: all 0.2s linear;
+        -ms-transition: all 0.2s linear;
+        transition: all 0.2s linear;
+    }
+    & a.info {
+        display: inline-block;
+        text-decoration: none;
+        cursor: pointer;
+        padding: 7px 14px;
+        background: $secondary-color;
+        color: #fff;
+        border-radius: 20px;
+        text-transform: uppercase;
+        -webkit-box-shadow: 0 0 1px #000;
+        -moz-box-shadow: 0 0 1px #000;
+        box-shadow: 0 0 1px #000;
+        -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        filter: alpha(opacity=0);
+        opacity: 0;
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+        -ms-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        @include easeOut;
         &:hover {
-            opacity: 0.5; //border-color: $light-blue;
-            @include easeOut;
+            background: $accent-color;
         }
     }
+    &:hover .mask {
+        -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+        filter: alpha(opacity=100);
+        opacity: 1;
+    }
+    &:hover h2,
+    &:hover p,
+    &:hover a.info {
+        -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+        filter: alpha(opacity=100);
+        opacity: 1;
+        -webkit-transform: translateY(0px);
+        -moz-transform: translateY(0px);
+        -o-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        transform: translateY(0px);
+    }
 }
 
-.des {
-    grid-column: 2;
+.thumb:hover p {
+    -webkit-transition-delay: 0.1s;
+    -moz-transition-delay: 0.1s;
+    -o-transition-delay: 0.1s;
+    -ms-transition-delay: 0.1s;
+    transition-delay: 0.1s;
 }
 
-.item {
-    width: 100%;
-    .project-info {
-        z-index: 1;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-color: #008cba;
-        overflow: hidden;
+.thumb:hover img {
+    -webkit-transform: scale(1.1, 1.1);
+    -moz-transform: scale(1.1, 1.1);
+    -o-transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+}
+
+.thumb:hover a.info {
+    -webkit-transition-delay: 0.2s;
+    -moz-transition-delay: 0.2s;
+    -o-transition-delay: 0.2s;
+    -ms-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+
+// ============================= Projects ==================
+.proj-lightbox {
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    transition: all 0.7s;
+    max-height: 0;
+    background: rgba($primary-color, 0.8);
+    h3 {
+        font-size: 3.5rem;
+        text-align: center;
+        margin-top: 50px;
+    }
+    h4 {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+    img {
+        margin: 0 auto;
         width: 100%;
-        height: 0;
-        display: block; 
-        -webkit-transform: scale(0, 1);
-        -ms-transform: scale(0, 1);
-        transform: scale(0, 1);
-        -webkit-transition: transform 0.4s cubic-bezier(1, 0, 0, 1);
-        transition: transform 0.4s cubic-bezier(1, 0, 0, 1);
     }
-    &:hover .project-info {
-        height: 100%;
-        -webkit-transform-origin: right top;
-        -ms-transform-origin: right top;
-        transform-origin: right top;
-        -webkit-transform: scale(1, 1);
-        -ms-transform: scale(1, 1);
-        transform: scale(1, 1);
-    }
+}
+
+.show-project {
+    max-height: 1200px;
 }
 
 // Footer
