@@ -4,12 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="icon" href="/dist/img/favicon.ico" type="image/x-icon" />
+    <!--
+      <link rel="icon" href="/dist/img/favicon.ico" type="image/x-icon" />
+    -->
 
     <link
-      href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700"
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,700"
       rel="stylesheet"
     />
+
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
@@ -23,7 +26,6 @@
   </head>
 
   <body id="bg-image">
-    <!-- <div class="overlay"></div> -->
     <header>
       <div class="menu-btn">
         <div class="btn-line"></div>
@@ -54,10 +56,8 @@
       <h1 class="lg-heading">
         Dani <span class="text-secondary">Dantas</span>
       </h1>
-      <h2 class="sm-heading">Web Developer, Designer & Entrepreneur</h2>
+      <h2 class="sm-heading">{{ welcomemessage }}</h2>
       <div class="icons">
-        <!-- <a href="#!"> <i class="fab fa-twitter fa-2x"></i> </a> -->
-        <!-- <a href="#!"> <i class="fab fa-facebook fa-2x"></i> </a> -->
         <a href="https://www.linkedin.com/in/dantasdaniela/">
           <i class="fab fa-linkedin fa-2x"></i>
         </a>
@@ -65,7 +65,25 @@
           <i class="fab fa-github fa-2x"></i>
         </a>
       </div>
-      <div><button class="movin-btn"></button></div>
+      <div><button v-on:click="show = !show" class="movin-btn"></button></div>
+
+      <transition name="fade">
+        <div>
+          <i
+            v-if="show"
+            v-on:click="show = !show"
+            class="fas fa-times-circle fa-3x close-vid"
+          ></i>
+          <video id="reel" v-if="show" autoplay controls></video>
+        </div>
+      </transition>
+
+      <div class="vid-overlay"></div>
+      <div class="vid container">
+        <div class="fullscreen-vid-wrap">
+          <video id="bgVid" autoplay loop muted></video>
+        </div>
+      </div>
     </main>
     <script src="js/main.js"></script>
     <script src="js/home.js"></script>

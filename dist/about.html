@@ -6,16 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link
       rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
-      integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
       crossorigin="anonymous"
     />
+    <link
+      href="https://fonts.googleapis.com/css?family=PT+Serif:400i"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,700"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/animate.css" />
     <link rel="stylesheet" href="css/main.css" />
     <title>About Me</title>
   </head>
 
   <body id="about-me">
-    <!-- <div class="overlay"></div> -->
+    <div class="overlay"></div>
     <header>
       <div class="menu-btn">
         <div class="btn-line"></div>
@@ -40,53 +49,73 @@
         </ul>
       </nav>
     </header>
+    <div class="logo-bg"></div>
     <img src="img/logo_d.png" alt="Dani Dantas Logo" id="logo" />
     <main id="about">
       <h1 class="lg-heading">About <span class="text-secondary">Me</span></h1>
       <h2 class="sm-heading">Let me tell you a few things...</h2>
-      <div class="about-info">
-        <img src="img/portrait.jpg" alt="Daniela Dantas" class="bio-image" />
-
+      <section class="about-info">
+        <h3 class="hidden">About Me Section</h3>
         <div class="bio">
-          <h3 class="text-secondary">BIO</h3>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt,
-            provident quod. Commodi est id veniam facere possimus reiciendis ea
-            provident nulla dolorem modi. At, sed officia error recusandae rem
-            ex!
+            I am a hardworking, spirited and passionate
+            <span class="text-secondary">Web Developer</span> and I like to
+            combine <span class="text-secondary">engaging</span> designs with
+            great <span class="text-secondary">functionality</span>. <br />
+            I am a multimedia person. I’ve been working with videos for web, TV
+            and film for 5 years or so. Coding, on the other hand, is something
+            fairly new in my life and I’m captivated by it.
           </p>
-        </div>
 
-        <div class="job job-1">
-          <h3>123 Webshop</h3>
-          <h6>Full Stack Developer</h6>
+          <img
+            src="img/tv_glitch_med.gif"
+            alt="TV image glitch"
+            class="bio-image"
+          />
+        </div>
+      </section>
+
+      <section class="skills">
+        <div class="skill-bg">
+          <h3>My <span class="text-secondary">Skills</span></h3>
+          <!-- <h4>What I can do</h4> -->
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
-            accusantium fugiat expedita suscipit, labore sequi rem porro! Natus,
-            facilis mollitia!
+            Challenges and learning new things are my cup of tea, and my goal is
+            to provide technical and creative solutions to every project.
+          </p>
+
+          <div class="icons">
+            <i class="fas fa-laptop-code"></i> <i class="fas fa-code fa-5x"></i>
+          </div>
+          <p class="text">As a Developer I've had experience with:</p>
+
+          <ul>
+            <li>
+              <span class="fa-li"><i class="fas fa-code"></i></span>HTML5
+            </li>
+            <li>CSS</li>
+            <li>SASS</li>
+            <li>Javascript</li>
+            <li>CodeIgniter</li>
+            <li>Laravel</li>
+          </ul>
+          <div>
+            <i class="fas fa-pen-nib fa-5x"></i>
+            <i class="fas fa-film fa-5x"></i>
+          </div>
+          <p class="text">
+            As a Designer & Video Editor I've had experience with:
           </p>
         </div>
-        <div class="job job-2">
-          <h3>Designer ABC</h3>
-          <h6>Front End Developer</h6>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
-            accusantium fugiat expedita suscipit, labore sequi rem porro! Natus,
-            facilis mollitia!
-          </p>
-        </div>
-        <div class="job job-3">
-          <h3>Webworks</h3>
-          <h6>Graphic Designer</h6>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
-            accusantium fugiat expedita suscipit, labore sequi rem porro! Natus,
-            facilis mollitia!
-          </p>
-        </div>
-      </div>
+      </section>
+      <section class="bg-info"></section>
+      <section class="fun-facts"></section>
     </main>
     <footer id="main-footer">Copyright &copy; 2018</footer>
+    <script src="js/wow.min.js"></script>
+    <script>
+      new WOW().init();
+    </script>
     <script src="js/main.js"></script>
   </body>
 </html>
