@@ -9,9 +9,10 @@
     -->
 
     <link
-      href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700"
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,700"
       rel="stylesheet"
     />
+
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
@@ -64,30 +65,23 @@
           <i class="fab fa-github fa-2x"></i>
         </a>
       </div>
-      <div><button v-on:click="showVideo" class="movin-btn"></button></div>
-      <!--
-        <transition name="fade">
-          <div>
-            <i
-              v-if="show"
-              v-on:click="show = !show"
-              class="fas fa-times-circle fa-3x close-vid"
-            ></i>
-            <video
-              id="reel"
-              v-if="show"
-              src="videos/reel_2018_web.mp4"
-              autoplay
-              loop
-              controls
-            ></video>
-          </div>
-        </transition>
-      -->
+      <div><button v-on:click="show = !show" class="movin-btn"></button></div>
+
+      <transition name="fade">
+        <div>
+          <i
+            v-if="show"
+            v-on:click="show = !show"
+            class="fas fa-times-circle fa-3x close-vid"
+          ></i>
+          <video id="reel" v-if="show" autoplay controls></video>
+        </div>
+      </transition>
+
       <div class="vid-overlay"></div>
       <div class="vid container">
         <div class="fullscreen-vid-wrap">
-          <video src="videos/reel_2018_web.mp4" autoplay loop muted></video>
+          <video id="bgVid" autoplay loop muted></video>
         </div>
       </div>
     </main>
