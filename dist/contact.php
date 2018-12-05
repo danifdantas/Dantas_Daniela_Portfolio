@@ -1,3 +1,27 @@
+
+<?php
+var_dump($_POST);
+
+$fields = array(
+  'name' => array(
+    'type' => 'text',
+    'label' => 'Name'
+  ),
+  'email' => array(
+    'type' => 'email',
+    'label' => 'Email'
+  ),
+  // 'phone' => array(
+  //   'type' => 'tel',
+  //   'label' => 'Phone'
+  // ),
+  'message' => array(
+    'type' => 'textarea',
+    'label' => 'Message'
+  )
+);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -44,7 +68,7 @@
             <a href="work.html" class="nav-link"> My Work </a>
           </li>
           <li class="nav-item">
-            <a href="contact.html" class="nav-link"> How To Reach Me </a>
+            <a href="contact.php" class="nav-link"> How To Reach Me </a>
           </li>
         </ul>
       </nav>
@@ -53,6 +77,23 @@
     </header>
     <main>
       <h1 class="lg-heading">Contact <span class="text-secondary">Me</span></h1>
+      //TODO 
+      <?php if(isset($_GET['status']) && $_GET['status']==='successful'): ?>
+    <p>The form was submitted successfully</p>
+        <?php endif; ?>
+
+        <?php if(isset($_GET['status']) && $_GET['status']==='error'): ?>
+        <p>The form is missing some required fields</p>
+        <?php endif; ?>
+
+        <form action="./send_email.php" method="POST">
+          <?php foreach ($fields as $field_name => $field_config) : ?> 
+          <label for="<?php echo $field_name; ?>"><?php echo $field_config['label']; ?></label>
+          <input type="<?php echo $field_config['type']; ?>" id="<?php echo $field_name; ?>" name="<?php echo $field_name; ?>">
+        <?php endforeach; ?>
+          <button type="submit">Submit</button>
+    </form>
+    <!-- PHP FORM END -->
       <form action="/my-handling-form-page" method="post">
         <div>
           <label for="name">Name:</label>
