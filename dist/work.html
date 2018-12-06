@@ -68,10 +68,11 @@
       </section>
       <section class="proj-lightbox" :class="{ 'show-project' : showDetails }">
         <div class="lightbox-bg">
+          <i v-on:click="showDetails = false" class="fas fa-times-circle"></i>
           <h3 class="project-title">{{ projecttitle }}</h3>
           <h4>{{ projectrole }}</h4>
           <img :src="'img/projects/' + projectbigimg" alt="" />
-          <!-- <video :src="'video/' + videosource" autoplay></video> -->
+
           <div class="project-details">
             <p>{{ projectdesc }}</p>
             <p>{{ projectchallenge }}</p>
@@ -80,7 +81,17 @@
         </div>
       </section>
     </main>
-    <footer id="main-footer">Copyright &copy; 2018</footer>
+    <footer id="main-footer">
+      <div class="icons">
+        <a href="https://www.linkedin.com/in/dantasdaniela/">
+          <i class="fab fa-linkedin fa-2x"></i>
+        </a>
+        <a href="https://github.com/danifdantas?tab=repositories">
+          <i class="fab fa-github fa-2x"></i>
+        </a>
+      </div>
+      <p>&copy; Dani Dantas 2018</p>
+    </footer>
     <script src="js/work.js"></script>
     <script src="js/main.js"></script>
   </body>

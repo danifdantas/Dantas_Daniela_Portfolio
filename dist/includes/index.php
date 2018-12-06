@@ -1,14 +1,23 @@
 <?php
-include 'functions.php';
+// required headers
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
 
-//single project route
+// include database and object files
+// include 'connect.php';
+require 'functions.php';
+
+// instantiate database and product object
+$database = new Database();
+$conn = $database->getConnection();
 
 if(isset($_GET['project'])) {
-    $data = get_single_project($conn, $_GET['project']);
-    echo json_encode($data);
+  $data = get_single_project($conn, $_GET['project']);
+  echo json_encode($data);
 } else{
-    $data = get_all_projects($conn);
-    echo json_encode($data);
+  $data = get_all_projects($conn);
+  echo json_encode($data);
 }
+
 
 ?>

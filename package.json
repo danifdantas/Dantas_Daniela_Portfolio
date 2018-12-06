@@ -1,0 +1,17 @@
+{
+  "name": "modern_portfolio",
+  "version": "1.0.0",
+  "description": "Responsive Portfolio website",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -r --output-style compressed -w scss/ -o dist/css/ --recursive",
+    "dev": "gulp serve"
+  },
+  "author": "Daniela Dantas",
+  "license": "MIT",
+  "dependencies": {
+    "node-sass": "^4.9.4",
+    "browser-sync": "^2.26.3",
+    "gulp": "^3.9.1"
+  }
+}

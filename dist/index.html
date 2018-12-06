@@ -19,7 +19,7 @@
       integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
     <!-- VUE -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Dani Dantas | Portfolio</title>
@@ -74,14 +74,14 @@
             v-on:click="show = !show"
             class="fas fa-times-circle fa-3x close-vid"
           ></i>
-          <video id="reel" v-if="show" autoplay controls></video>
+          <video id="reel" v-if="show" autoplay playsinline controls></video>
         </div>
       </transition>
 
       <div class="vid-overlay"></div>
       <div class="vid container">
         <div class="fullscreen-vid-wrap">
-          <video id="bgVid" autoplay loop muted></video>
+          <video id="bgVid" autoplay loop playsinline muted></video>
         </div>
       </div>
     </main>

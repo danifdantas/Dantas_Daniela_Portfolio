@@ -1,25 +1,6 @@
 
 <?php
-var_dump($_POST);
-
-$fields = array(
-  'name' => array(
-    'type' => 'text',
-    'label' => 'Name'
-  ),
-  'email' => array(
-    'type' => 'email',
-    'label' => 'Email'
-  ),
-  // 'phone' => array(
-  //   'type' => 'tel',
-  //   'label' => 'Phone'
-  // ),
-  'message' => array(
-    'type' => 'textarea',
-    'label' => 'Message'
-  )
-);
+  require('includes/send_email.php');
 
 ?>
 <!DOCTYPE html>
@@ -28,10 +9,8 @@ $fields = array(
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <!--
-      <link rel="icon" href="/dist/img/favicon.ico" type="image/x-icon" />
-    -->
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/lumen/bootstrap.min.css">
+   
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700"
       rel="stylesheet"
@@ -43,12 +22,12 @@ $fields = array(
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/main.css" />
-    <!-- VUE -->
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
     <title>Dani Dantas | Portfolio</title>
   </head>
 
-  <body id="bg-image">
+  <body id="contact-pg">
+  <div class="overlay"></div>
     <header>
       <div class="menu-btn">
         <div class="btn-line"></div>
@@ -72,43 +51,58 @@ $fields = array(
           </li>
         </ul>
       </nav>
-      <div class="logo-bg"></div>
-      <img src="img/logo_d.png" alt="Dani Dantas Logo" id="logo" />
     </header>
-    <main>
+    <div class="logo-bg"></div>
+      <img src="img/logo_d.png" alt="Dani Dantas Logo" id="logo" />
+    <main id="contact">
+
       <h1 class="lg-heading">Contact <span class="text-secondary">Me</span></h1>
-      //TODO 
-      <?php if(isset($_GET['status']) && $_GET['status']==='successful'): ?>
-    <p>The form was submitted successfully</p>
-        <?php endif; ?>
-
-        <?php if(isset($_GET['status']) && $_GET['status']==='error'): ?>
-        <p>The form is missing some required fields</p>
-        <?php endif; ?>
-
-        <form action="./send_email.php" method="POST">
-          <?php foreach ($fields as $field_name => $field_config) : ?> 
-          <label for="<?php echo $field_name; ?>"><?php echo $field_config['label']; ?></label>
-          <input type="<?php echo $field_config['type']; ?>" id="<?php echo $field_name; ?>" name="<?php echo $field_name; ?>">
-        <?php endforeach; ?>
-          <button type="submit">Submit</button>
-    </form>
-    <!-- PHP FORM END -->
-      <form action="/my-handling-form-page" method="post">
-        <div>
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="user_name" />
-        </div>
-        <div>
-          <label for="mail">E-mail:</label>
-          <input type="email" id="mail" name="user_mail" />
-        </div>
-        <div>
-          <label for="msg">Message:</label>
-          <textarea id="msg" name="user_message"></textarea>
-        </div>
-      </form>
+      
+      <div class="container">
+      <!-- ALERT -->
+      <?php if($msg != ''): ?>
+            <div class="alert <?php echo $msgClass; ?>">
+              <?php echo $msg; ?>
+            </div>
+          <?php endif; ?>
+         
+          <form class="contact-form" action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
+        
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" class="form-control" value="<?php echo isset($_POST['name']) ? $name : ''; ?>">
+              </div>
+              <div class="form-group">
+                <label for="mail">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" class="form-control" value="<?php echo isset($_POST['email']) ? $email : ''; ?>">
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="What do you want to talk about?" class="form-control" value="<?php echo isset($_POST['subject']) ? $subject : ''; ?>">
+              </div>
+              <div class="form-group">
+                <label for="msg">Message</label>
+                <textarea id="msg" name="message" class="form-control">
+                <?php echo isset($_POST['message']) ? $message : ''; ?>
+                </textarea>
+              </div>
+                <button type="submit" name="submit" class="btn-btn"><i class="fas fa-paper-plane"></i>Send</button>
+          </form>
+      </div>
+      
     </main>
+    <footer id="main-footer">
+    <div class="icons">
+        <a href="https://www.linkedin.com/in/dantasdaniela/">
+          <i class="fab fa-linkedin fa-2x"></i>
+        </a>
+        <a href="https://github.com/danifdantas?tab=repositories">
+          <i class="fab fa-github fa-2x"></i>
+        </a>
+      </div>
+      <p> &copy; Dani Dantas 2018</p>
+      
+    </footer>
     <script src="js/main.js"></script>
   </body>
 </html>

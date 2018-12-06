@@ -18,10 +18,6 @@ body {
   line-height: 1.5;
 }
 
-#bg-image {
-  @include background;
-}
-
 // Headings
 .hidden {
   display: none;
@@ -61,7 +57,7 @@ header {
 }
 
 .logo-bg {
-  width: 90px;
+  width: 95px;
   height: 130px;
   left: 44.4vw;
   background-color: #000;
@@ -103,7 +99,7 @@ header {
 
 main {
   padding: 4rem;
-  min-height: calc(100vh - 60px);
+  min-height: calc(100vh - 80px);
   .icons {
     margin-top: 1rem;
     a {
@@ -152,18 +148,23 @@ main {
   opacity: 0;
 }
 
-// =============================      About Me Page ---
+// =============================      About Me Page     =======================
 #about-me {
   background: $primary-color url(../img/about-me-bg1.jpg);
   background-attachment: fixed;
-  background-size: cover;
+  background-size: contain;
+  background-position: center;
+  // background-size: cover;
+  height: 175%;
 }
 
 .about-info {
-  width: 100%;
+  width: 100vw;
   margin-left: -4rem;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  position: relative;
+  transform-style: inherit;
 }
 
 .bio {
@@ -197,9 +198,13 @@ main {
   background: url(../img/about-me-bg2.jpg);
   background-attachment: fixed;
   background-size: cover;
+  background-size: contain;
+  background-position: center;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   @include insideBoxShadow;
+  @include boxShadow;
   .skill-bg {
     margin: 0 auto;
     width: 85%;
@@ -272,10 +277,11 @@ main {
   width: 100vw;
   height: 100%;
   margin-left: -4rem;
-  background-color: $primary-color;
+  background-color: rgba($primary-color, 0.9);
   overflow: hidden;
   @include boxShadow;
   padding: 4rem;
+  margin-top: 20rem;
   h3 {
     margin-left: 5rem;
   }
@@ -327,16 +333,53 @@ main {
   background: $primary-color url(../img/about-me-bg3.jpg);
   background-attachment: fixed;
   background-size: cover;
+  background-size: contain;
   background-position: center;
+  padding: 4rem;
   margin-left: -4rem;
+  margin-top: 20rem;
+  margin-bottom: -4rem;
   @include boxShadow;
+  p {
+    text-align: center;
+    padding-right: 2rem;
+    font-size: 4rem;
+    margin-bottom: 2rem;
+  }
+  .coffee {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
-// ====================        WORK PAGE
+.contact {
+  text-align: center;
+  p {
+    font-size: 1.7rem;
+  }
+  .btn-btn {
+    height: 2.4rem;
+    line-height: 2.4rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0;
+    color: $primary-color;
+    @include easeOut;
+    @include boxShadow;
+    &:hover {
+      background-color: $secondary-color;
+    }
+  }
+}
+
+// =================================      WORK PAGE      ====================
 #work-bg-image {
   background-image: url(../img/bg_pic.jpg);
   background-attachment: fixed;
   background-size: cover;
+  background-size: contain;
   background-position: center;
 }
 
@@ -540,19 +583,98 @@ main {
     font-size: 1.5rem;
     text-align: center;
   }
+  i {
+    color: $accent-color;
+    margin-left: 95%;
+    margin-top: 1rem;
+    font-size: 4rem;
+  }
 }
 
 .show-project {
   max-height: 1200px;
 }
 
+// ======================= Contact Page
+#contact-pg {
+  background: url(../img/contact_bg.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+#contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  h1 {
+    // padding-top: 15rem;
+    margin-bottom: 4rem;
+  }
+  span {
+    color: $secondary-color !important;
+  }
+  .container {
+    font-size: 2rem;
+    width: 70%;
+  }
+  input,
+  textarea {
+    font-size: 1.5rem;
+    height: 4rem;
+    border-radius: 2rem;
+    margin-bottom: 2rem;
+  }
+  label {
+    color: $secondary-color;
+    font-size: 2.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+  }
+  .alert-danger {
+    font-size: 2rem;
+  }
+  .alert-success {
+    font-size: 2rem;
+  }
+}
+
+.btn-btn {
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 20px; //margin-left: 40%;
+  width: 200px;
+  background-color: $accent-color;
+  border: none;
+  margin-top: 1rem;
+  letter-spacing: 0.4rem;
+  @include easeOut;
+  @include boxShadow;
+  &:hover {
+    background-color: $secondary-color;
+  }
+  &:active {
+    transform: translateY(4px);
+  }
+}
+
 // Footer
 #main-footer {
   text-align: center;
-  padding: 1rem;
+  padding: 2rem;
   background: darken($primary-color, 10);
   color: set-text-color($primary-color);
-  height: 60px;
+  height: 80px;
+  p {
+    margin: 0;
+    padding-top: 1rem;
+    font-size: 1.2rem;
+  }
+  i {
+    font-size: 2.6rem;
+    padding-left: 1rem;
+  }
 }
 
 @import "mobile";
