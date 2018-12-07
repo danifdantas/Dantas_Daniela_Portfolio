@@ -25,7 +25,7 @@
 
   <body id="about-me">
     <div class="overlay"></div>
-    <header>
+    <header id="h-bg">
       <div class="menu-btn">
         <div class="btn-line"></div>
         <div class="btn-line"></div>
@@ -44,7 +44,7 @@
             <a href="work.html" class="nav-link"> My Work </a>
           </li>
           <li class="nav-item">
-            <a href="contact.html" class="nav-link"> How To Reach Me </a>
+            <a href="contact.php" class="nav-link"> How To Reach Me </a>
           </li>
         </ul>
       </nav>
@@ -57,7 +57,7 @@
       <section class="about-info">
         <h3 class="hidden">About Me Section</h3>
         <div class="bio">
-          <p>
+          <p class="wow fadeInUp">
             I am a hardworking, spirited and passionate
             <span class="text-secondary">Web Developer</span> and I like to
             combine <span class="text-secondary">engaging</span> designs with
@@ -70,48 +70,112 @@
           <img
             src="img/tv_glitch_med.gif"
             alt="TV image glitch"
-            class="bio-image"
+            class="bio-image wow fadeInUp"
           />
         </div>
       </section>
 
       <section class="skills">
-        <div class="skill-bg">
-          <h3>My <span class="text-secondary">Skills</span></h3>
+        <div class="skill-bg wow fadeInUp">
+          <h3 class="wow fadeInUp">My <span class="text-secondary">Skills</span></h3>
           <!-- <h4>What I can do</h4> -->
-          <p>
+          <p class="wow fadeInUp" data-wow-duration="2s">
             Challenges and learning new things are my cup of tea, and my goal is
             to provide technical and creative solutions to every project.
           </p>
 
-          <div class="icons">
-            <i class="fas fa-laptop-code"></i> <i class="fas fa-code fa-5x"></i>
-          </div>
-          <p class="text">As a Developer I've had experience with:</p>
+          <div class="icons wow fadeInUp"><i class="fas fa-laptop-code fa-5x"></i></div>
+          <p class="text wow fadeInUp">As a Developer I've had experience with:</p>
 
-          <ul>
+          <ul class="fa-ul wow slideInRight">
             <li>
-              <span class="fa-li"><i class="fas fa-code"></i></span>HTML5
+              <span class="fa-li dev"><i class="fas fa-code"></i></span>HTML5
             </li>
-            <li>CSS</li>
-            <li>SASS</li>
-            <li>Javascript</li>
-            <li>CodeIgniter</li>
-            <li>Laravel</li>
+            <li>
+              <span class="fa-li dev"><i class="fas fa-code"></i></span>CSS
+            </li>
+            <li>
+              <span class="fa-li dev"><i class="fas fa-code"></i></span>SASS
+            </li>
+            <li>
+              <span class="fa-li dev"><i class="fas fa-code"></i></span>Javascript
+            </li>
+            <li>
+              <span class="fa-li dev"><i class="fas fa-code"></i></span>CodeIgniter
+            </li>
+            <li>
+              <span class="fa-li dev"><i class="fas fa-code"></i></span>Laravel
+            </li>
           </ul>
           <div>
-            <i class="fas fa-pen-nib fa-5x"></i>
-            <i class="fas fa-film fa-5x"></i>
+            <i class="fas fa-pen-nib fa-5x wow pulse" data-wow-iteration="5"></i>
+            <i class="fas fa-film fa-5x wow pulse" data-wow-iteration="5"></i>
           </div>
-          <p class="text">
+          <p class="text wow fadeInUp">
             As a Designer & Video Editor I've had experience with:
           </p>
+          <ul class="fa-ul">
+            <li>
+              <span class="fa-li wow slideInRight"><i class="fas fa-bezier-curve"></i>Adobe Suite
+            </li>
+            <li>
+              <span class="fa-li wow slideInRight"><i class="fas fa-bezier-curve"></i>Cinema 4D
+            </li>
+            <li>
+              <span class="fa-liwow slideInLeft"><i class="fas fa-bezier-curve"></i></span>Final Cut
+            </li>
+          </ul>
         </div>
       </section>
-      <section class="bg-info"></section>
-      <section class="fun-facts"></section>
+      <section class="bg-info">
+          <h3 class="lg-heading">So <span class="text-secondary">...</span></h3>
+          <h4 class="sm-heading">A bit more about me</h4>
+          <div class="svg-wraper">
+            <div class="brazil-map">
+                
+              <object class="wow fadeInUp" data="img/brazil_map.svg" type=""></object>
+            </div>
+            <div class="canada-map">
+                <object class="wow fadeInUp" data="img/canada_map.svg" type=""></object>
+            </div>
+            <div class="lines">
+              <object class="wow fadeIn" data-wow-duration="3s" data="img/map_svg.svg" type=""></object>
+            </div>
+  
+          </div>
+       
+      </section>
+      <section class="fun-facts">
+          <h3 class="lg-heading wow slideInRight" data-wow-duration="2s">Lastly <span class="text-secondary">...</span></h3>
+          
+          <p>Here are some things that I reeealy love</p>
+          <div class="coffee">
+          <img class="wow slideInLeft" src="img/icon_cafe.png" alt="coffee icon">
+          <img class="wow slideInRight" src="img/icon_movie.png" alt="movie icon">
+          <img class="wow slideInLeft" src="img/icon_tv.png" alt="TV icon">
+          <img class="wow slideInRight" src="img/icon_pizza.png" alt="pizza icon">
+          <img class="wow slideInLeft" src="img/icon_trainers.png" alt="sports icon">
+          <img class="wow slideInRight" src="img/icon_world-map.png" alt="Travel icon">
+        </div>
+        <div class="contact wow fadeInUp" data-wow-duration="2s">
+        <p>and never forget to laugh :)</p>
+        <p>Want to get in touch?</p>
+        <a href="contact.php" class="btn-btn">Contact Me</a>
+      </div>
+      </section>
     </main>
-    <footer id="main-footer">Copyright &copy; 2018</footer>
+    <footer id="main-footer">
+        <div class="icons">
+            <a href="https://www.linkedin.com/in/dantasdaniela/">
+              <i class="fab fa-linkedin fa-2x"></i>
+            </a>
+            <a href="https://github.com/danifdantas?tab=repositories">
+              <i class="fab fa-github fa-2x"></i>
+            </a>
+          </div>
+          <p> &copy; Dani Dantas 2018</p>
+          
+        </footer>
     <script src="js/wow.min.js"></script>
     <script>
       new WOW().init();
