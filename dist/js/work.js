@@ -23,7 +23,6 @@
 
     created: function() {
       // get all projects on page load
-
       this.fetchProjectData(null);
     },
 
@@ -39,13 +38,17 @@
 
         this.projecttitle = data.project_title;
         this.projectdesc = data.project_desc;
+        this.projectchallenge = data.project_challenge;
+        this.projectsolution = data.project_solution;
         this.projectbigimg = data.project_big_img_path;
+        this.projectsmallimg = data.project_small_img_path;
         this.projectrole = data.role;
+        this.videosource = data.project_vid;
         this.showDetails = true;
 
         //console.log(singledata);
         setTimeout(function() {
-          window.scrollTo(0, 1200);
+          window.scrollTo(0, 1000);
         }, 500);
       },
 
