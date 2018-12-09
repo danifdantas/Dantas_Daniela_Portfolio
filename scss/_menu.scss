@@ -126,7 +126,8 @@
                 -webkit-transition: transform 0.4s cubic-bezier(1, 0, 0, 1);
                 transition: transform 0.4s cubic-bezier(1, 0, 0, 1);
             }
-            &:hover::before {
+            &:hover::before,
+            &:active::before {
                 -webkit-transform-origin: right top;
                 -ms-transform-origin: right top;
                 transform-origin: right top;

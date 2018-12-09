@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/lumen/bootstrap.min.css">
    
     <link
-      href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700"
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,700"
       rel="stylesheet"
     />
     <link
