@@ -71,17 +71,29 @@
           </div>
         </div>
       </section>
-      <section class="proj-lightbox" :class="{ 'show-project' : showDetails }">
-        <div class="lightbox-bg">
-          <i v-on:click="showDetails = false" class="fas fa-times-circle"></i>
+      <section
+        class="proj-lightbox"
+        :class="{ 'show-project' : showDetails, 'hide-project' : hideDetails }"
+      >
+        <div
+          class="lightbox-bg"
+          :class="{ 'show-project' : showDetails, 'hide-project' : hideDetails }"
+        >
+          <i v-on:click="hideDetails = true" class="fas fa-times-circle"></i>
           <h3 class="project-title">{{ projecttitle }}</h3>
           <h4>{{ projectrole }}</h4>
           <img :src="'img/projects/' + projectbigimg" alt="" />
-
           <div class="project-details">
             <p>{{ projectdesc }}</p>
             <p>{{ projectchallenge }}</p>
             <p>{{ projectsolution }}</p>
+            <video
+              v-if="show"
+              :src="'videos/' + videosource"
+              autoplay
+              muted
+              controls
+            ></video>
           </div>
         </div>
       </section>
