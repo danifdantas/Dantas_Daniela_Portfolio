@@ -98,10 +98,15 @@
     .logo-bg {
         width: 90px;
         height: 125px;
-        left: 44.3vw;
+        left: 49.5vw;
     }
     .fun-facts {
         background: url(../img/about-me-bg3_med.jpg);
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
     }
     .show-project {
         min-height: 1200px;
@@ -197,12 +202,29 @@
     .logo-bg {
         width: 85px;
         height: 115px;
-        left: 43.2vw;
+        left: 48vw;
     }
-    .proj-lightbox i {
-        margin-left: 70%;
+    .proj-lightbox {
+        padding: 4rem;
+        h3 {
+            font-size: 3rem;
+            text-align: center;
+            margin-top: 1rem;
+            color: $primary-color;
+        }
+        h4 {
+            font-size: 2rem;
+            text-align: center;
+            color: $primary-color;
+        }
+        p {
+            font-size: 1.4rem;
+        }
+        i {
+            margin-left: 75%;
+        }
     }
-    .show-project {
-        min-height: 1000px;
+    .lightbox-bg {
+        padding: 2rem;
     }
 }

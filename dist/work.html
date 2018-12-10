@@ -82,7 +82,7 @@
           <i v-on:click="hideDetails = true" class="fas fa-times-circle"></i>
           <h3 class="project-title">{{ projecttitle }}</h3>
           <h4>{{ projectrole }}</h4>
-          <img :src="'img/projects/' + projectbigimg" alt="" />
+          <img :src="'img/projects/' + projectbigimg" :alt="projecttitle" />
           <div class="project-details">
             <p>{{ projectdesc }}</p>
             <p>{{ projectchallenge }}</p>
