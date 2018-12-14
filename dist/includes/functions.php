@@ -22,11 +22,14 @@ require 'connect.php';
     function get_single_project($pdo, $proj) {
         
         //Create query
-        $query = "SELECT * FROM tbl_projects p, tbl_roles r, tbl_projects_roles pr WHERE p.project_id = pr.project_id AND r.role_id = pr.role_id AND id = '$proj'";
-
+        $query = "SELECT * FROM tbl_projects p, tbl_roles r, tbl_projects_roles pr WHERE p.project_id = pr.project_id AND r.role_id = pr.role_id AND id = :id";
       // pass query to connection
-      $get_project = $pdo->query($query);
-      // result in an array
+      $get_project = $pdo->prepare($query);
+      $get_project->execute(
+        array(
+          'id'=>$proj
+        )
+      );
       $results = array();
 
       while($row = $get_project->fetch(PDO::FETCH_ASSOC)) {

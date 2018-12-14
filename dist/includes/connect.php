@@ -4,7 +4,7 @@ class Database {
     private $host = "localhost";
     private $db_name = "db_dantas_portfolio";
     private $user = "root";
-    private $password = "root";
+    private $password = "";
     public  $conn;
     //  database connection
     public function getConnection() {
