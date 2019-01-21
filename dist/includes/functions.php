@@ -35,3 +35,6 @@ require 'connect.php';
 
       return $results;
     }
+
+
+?>

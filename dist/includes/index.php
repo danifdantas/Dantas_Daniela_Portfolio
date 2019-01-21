@@ -12,8 +12,10 @@ $database = new Database();
 $conn = $database->getConnection();
 
 if(isset($_GET['project'])) {
-  $data = get_single_project($conn, $_GET['project']);
+ 
+  $data = get_single_project($conn, $proj);
   echo json_encode($data);
+  //var_dump($proj);
 } else{
   $data = get_all_projects($conn);
   echo json_encode($data);
